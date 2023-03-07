@@ -1,10 +1,10 @@
-# Project 2 - Flixster
+# Project 2 - *Flixster*
 
-Submitted by: Aaron Jacob
+Submitted by: **Aaron Jacob**
 
-Flixster is a movie browsing app that allows users to select a view details about movies retrieved from The Movie Database.
+Flixster is a movie browsing app that allows users to select and view details about movies retrieved from The Movie Database.
 
-Time spent: 2.5 hours spent in total
+Time spent: **2.5** hours spent in total
 
 ## Required Features
 
@@ -19,28 +19,23 @@ The following **optional** features are implemented:
 
 - [ ] Unique UI changes, such as background, font/color changes, etc.
 - [ ] User implements a collection view
-- [ ] User implemenets tab bar controller with at least two screens
+- [ ] User implements tab bar controller with at least two screens
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of the app:
 
-![](https://imgur.com/x7cjtux)
+![Imgur](https://imgur.com/x7cjtux)
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+GIF created with [Kap](https://getkap.co/) for macOS.
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Despite no errors or no warnings detected before or at compile time, some AutoLayout constraints could not be "simultaneously satisfied." I plan to fix this warning in the next iteration.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2023 Aaron Jacob
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
