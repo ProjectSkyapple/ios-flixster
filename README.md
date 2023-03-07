@@ -23,9 +23,9 @@ The following **optional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of the app:
+Here's a walkthrough of the app (may take a while to load since the high-res GIF is a large file):
 
-[Imgur](https://imgur.com/x7cjtux)
+![](/FlixsterUnit2GIF.gif)
 
 GIF created with [Kap](https://getkap.co/) for macOS.
 
