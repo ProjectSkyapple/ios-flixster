@@ -25,7 +25,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of the app:
 
-![Imgur](https://imgur.com/x7cjtux)
+[Imgur](https://imgur.com/x7cjtux)
 
 GIF created with [Kap](https://getkap.co/) for macOS.
 
