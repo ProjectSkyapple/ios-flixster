@@ -25,7 +25,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of the implemented Unit 3 features:
 
-![]()
+[Imgur](https://imgur.com/Zh4zwBZ)
 
 GIF created with [Kap](https://getkap.co/) for macOS.
 
