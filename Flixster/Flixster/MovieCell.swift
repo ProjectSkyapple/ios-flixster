@@ -14,11 +14,11 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     func configure(with movie: Movie) {
-        nameLabel.text = movie.name
-        descriptionLabel.text = movie.description
+        nameLabel.text = movie.title
+        descriptionLabel.text = movie.overview
 
         // Load image async via Nuke library image loading helper method
-        Nuke.loadImage(with: movie.poster, into: movieImageView)
+        Nuke.loadImage(with: URL(string: "https://image.tmdb.org/t/p/original" + movie.poster_path.absoluteString)!, into: movieImageView)
     }
     
     override func awakeFromNib() {

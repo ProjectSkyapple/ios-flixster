@@ -1,22 +1,22 @@
 //
-//  ViewController.swift
+//  PostersViewController.swift
 //  Flixster
 //
-//  Created by Aaron Jacob on 3/5/23.
+//  Created by Aaron Jacob on 3/13/23.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+class PostersViewController: UIViewController, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! PosterCell
 
         // Get the movie that corresponds to the table view row
-        let movieInCell = movies[indexPath.row]
+        let movieInCell = movies[indexPath.item]
 
         // Configure the cell with its associated movie
         cell.configure(with: movieInCell)
@@ -25,27 +25,15 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? UITableViewCell,
-           let indexPath = tableView.indexPath(for: cell),
-           // Get the detail view controller
-           let detailViewController = segue.destination as? DetailsViewController {
-
-            let movies = movies[indexPath.row]
-
-            detailViewController.movie = movies
-        }
-    }
+    @IBOutlet weak var PostersCollectionView: UICollectionView!
     
     var movies: [Movie] = []
     
-    @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
         // Do any additional setup after loading the view.
-        // Create a URL for the request
-        // In this case, the custom search URL you created in in part 1
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=966c7193fbe1becc49cc714e936a1b2b")!
 
         // Use the URL to instantiate a request
@@ -87,7 +75,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                     self?.movies = movies
 
                     // Make the table view reload now that we have new data
-                    self?.tableView.reloadData()
+                    self?.PostersCollectionView.reloadData()
                 }
                 
                 print("✅ \(movies)")
@@ -99,22 +87,52 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Initiate the network request
         task.resume()
         
-        print(movies)
         
-        tableView.dataSource = self
+        PostersCollectionView.dataSource = self
         
-        tableView.rowHeight = UITableView.automaticDimension
+        // Get a reference to the collection view's layout
+        // We want to dynamically size the cells for the available space and desired number of columns.
+        // NOTE: This collection view scrolls vertically, but collection views can alternatively scroll horizontally.
+        let layout = PostersCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+
+        // The minimum spacing between adjacent cells (left / right, in vertical scrolling collection)
+        // Set this to taste.
+        layout.minimumInteritemSpacing = 4
+
+        // The minimum spacing between adjacent cells (top / bottom, in vertical scrolling collection)
+        // Set this to taste.
+        layout.minimumLineSpacing = 4
+
+        // Set this to however many columns you want to show in the collection.
+        let numberOfColumns: CGFloat = 3
+
+        // Calculate the width each cell need to be to fit the number of columns, taking into account the spacing between cells.
+        let width = (PostersCollectionView.bounds.width - layout.minimumInteritemSpacing * (numberOfColumns - 1)) / numberOfColumns
+
+        // Set the size that each tem/cell should display at
+        layout.itemSize = CGSize(width: width, height: width * (100 / 67.5))
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UICollectionViewCell,
+           let indexPath = PostersCollectionView.indexPath(for: cell),
+           // Get the detail view controller
+           let detailViewController = segue.destination as? DetailsViewController {
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Get the index path for the current selected table view row (if exists)
-        if let indexPath = tableView.indexPathForSelectedRow {
+            let movies = movies[indexPath.item]
 
-            // Deselect the row at the corresponding index path
-            tableView.deselectRow(at: indexPath, animated: true)
+            detailViewController.movie = movies
         }
     }
-}
+    
+    /*
+    // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

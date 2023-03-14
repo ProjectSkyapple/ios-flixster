@@ -21,12 +21,12 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationItem.title = "\(movie.name)"
-        Nuke.loadImage(with: movie.backdrop, into: backdropImageView)
-        averageVoteLabel.text = "\(movie.averageVote)"
-        numberOfVotesLabel.text = "\(movie.numberOfVotes)"
+        navigationItem.title = "\(movie.title)"
+        Nuke.loadImage(with: URL(string: "https://image.tmdb.org/t/p/original" + movie.backdrop_path.absoluteString)!, into: backdropImageView)
+        averageVoteLabel.text = "\(movie.vote_average)"
+        numberOfVotesLabel.text = "\(movie.vote_count)"
         popularityLabel.text = "\(movie.popularity)"
-        descriptionLabel.text = movie.description
+        descriptionLabel.text = movie.overview
     }
     
 }
