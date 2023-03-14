@@ -1,12 +1,41 @@
-# Project 2 - *Flixster*
+# Units 2-3 Project - *Flixster*
 
 Submitted by: **Aaron Jacob**
 
-Flixster is a movie browsing app that allows users to select and view details about movies retrieved from The Movie Database.
+**Flixster** is a movie browsing app that allows users to select and view details about movies now playing retrieved from The Movie Database.
 
-Time spent: **2.5** hours spent in total
+Time spent: **2.5** hours spent on Unit 2 features, **1.5** hours spent on Unit 3 features
 
-## Required Features
+## Unit 3
+
+### Required Features
+
+The following **required** functionality is completed:
+
+- [x] Implement network call and table view to display a list of movies currently playing (title, description, image)
+- [x] App has a collection view with the same list of movies
+- [x] Uses a tab bar controller to switch between collection view and table view screens
+ 
+The following **optional** features are implemented:
+
+- [ ] Make an additional network call to another end-point.	
+- [ ] Allow users to scroll when context items are off-screen (table view implementation)
+
+### Video Walkthrough
+
+Here's a walkthrough of the implemented Unit 3 features:
+
+![]()
+
+GIF created with [Kap](https://getkap.co/) for macOS.
+
+### Notes
+
+No challenges were encountered while implementing the above features.
+
+## Unit 2
+
+### Required Features
 
 The following **required** functionality is completed:
 
@@ -21,7 +50,7 @@ The following **optional** features are implemented:
 - [ ] User implements a collection view
 - [ ] User implements tab bar controller with at least two screens
 
-## Video Walkthrough
+### Video Walkthrough
 
 Here's a walkthrough of the app (may take a while to load since the high-res GIF is a large file):
 
@@ -29,7 +58,7 @@ Here's a walkthrough of the app (may take a while to load since the high-res GIF
 
 GIF created with [Kap](https://getkap.co/) for macOS.
 
-## Notes
+### Notes
 
 Despite no errors or no warnings detected before or at compile time, some AutoLayout constraints could not be "simultaneously satisfied." I plan to fix this warning in the next iteration.
 
